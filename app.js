@@ -1,12 +1,13 @@
 /*
  * Module dependencies
  */
-var express = require('express')
+const port = 3000;
+const express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
 
 
-var app = express()
+const app = express()
 
 function compile(str, path) {
   return stylus(str)
@@ -30,4 +31,6 @@ app.get('/', function (req, res) {
   )
 })
 
-app.listen(3000)
+app.listen(port, ()=>{
+  console.log(`Server running on port ${port}`);
+})
